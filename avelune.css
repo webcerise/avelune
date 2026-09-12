@@ -3,7 +3,7 @@
    Surcharges visuelles du Blank Theme — ModernBB / Forumactif
    ================================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500;1,600&family=DM+Mono:wght@300;400;500&family=Sora:wght@300;400;500;600&family=Syne:wght@400;500;600;700&display=swap");
 
 /* --- Fondation -------------------------------------------------- */
 
@@ -14,8 +14,10 @@
   --medium-size: 16px;
   --large-size: 20px;
   --title-size: 30px;
-  --font: "DM Sans", sans-serif;
-  --avelune-display: "Fraunces", Georgia, serif;
+  --font: "Sora", sans-serif;
+  --avelune-display: "Syne", sans-serif;
+  --avelune-serif: "Cormorant Garamond", Georgia, serif;
+  --avelune-mono: "DM Mono", monospace;
   --avelune-radius-sm: 10px;
   --avelune-radius: 18px;
   --avelune-radius-lg: 28px;
@@ -24,6 +26,7 @@
 }
 
 :root[data-color-scheme="light"] {
+  color-scheme: light;
   --body: #e9efe8;
   --neutral: #fffdf8;
   --neutralDark: #f4f1e8;
@@ -42,6 +45,7 @@
 }
 
 :root[data-color-scheme="dark"] {
+  color-scheme: dark;
   --body: #17221f;
   --neutral: #22302c;
   --neutralDark: #1c2925;
@@ -178,7 +182,7 @@ fieldset.fld_connexion,
   color: #fffdf8;
   font-family: var(--avelune-display);
   font-size: clamp(30px, 5vw, 58px);
-  font-weight: 600;
+  font-weight: 700;
   line-height: .9;
   letter-spacing: -.055em;
   text-shadow: 0 3px 22px rgba(20, 45, 38, .4);
@@ -299,7 +303,8 @@ fieldset.fld_connexion,
   display: block;
   padding-right: 20px;
   border-right: 1px solid rgba(255, 255, 255, .32);
-  font: 600 64px/.8 var(--avelune-display);
+  font: 500 64px/.8 var(--avelune-serif);
+  font-style: italic;
   letter-spacing: -.07em;
 }
 
@@ -317,7 +322,7 @@ fieldset.fld_connexion,
 
 .cate_heading h2 strong,
 .cate_heading h2 b {
-  font-family: var(--avelune-display);
+  font-family: var(--avelune-serif);
   font-style: italic;
   font-weight: 700;
 }
@@ -330,6 +335,7 @@ fieldset.fld_connexion,
   justify-content: flex-end;
   padding-right: 60px;
   color: rgba(255, 255, 255, .55);
+  font-family: var(--avelune-mono);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: .18em;
@@ -344,6 +350,11 @@ fieldset.fld_connexion,
   font-size: 72px;
   line-height: 1;
   animation: avelune-orbit 24s linear infinite;
+}
+
+.cate_signature .game-icon::before,
+.forum_activity_mark .game-icon::before {
+  display: block;
 }
 
 @keyframes avelune-orbit {
@@ -404,7 +415,7 @@ fieldset.fld_connexion,
 .forum_index::before {
   content: counter(avelune-forum, decimal-leading-zero);
   color: var(--accentClrDark);
-  font: 700 11px/1 var(--font);
+  font: 500 11px/1 var(--avelune-mono);
   letter-spacing: .08em;
 }
 
@@ -414,7 +425,7 @@ a.forumtitle {
   max-width: 100%;
   overflow: hidden;
   color: var(--textColorAccent);
-  font-family: var(--font);
+  font-family: var(--avelune-display);
   font-size: clamp(20px, 2.5vw, 27px);
   font-weight: 300;
   line-height: 1.1;
@@ -448,6 +459,7 @@ a.forumtitle::after {
   border-radius: 5px;
   color: var(--textColor);
   background: var(--neutralDark);
+  font-family: var(--avelune-mono);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: .055em;
@@ -593,6 +605,7 @@ a.forumtitle::after {
 
 .forum_lastpost small {
   color: var(--avelune-sea);
+  font-family: var(--avelune-mono);
   font-size: 8px;
   font-weight: 800;
   letter-spacing: .17em;
@@ -607,8 +620,8 @@ a.forumtitle::after {
   border-top: 1px solid rgba(255, 255, 255, .18);
   border-bottom: 1px solid rgba(255, 255, 255, .18);
   color: rgba(255, 255, 255, .86);
-  font-family: var(--avelune-display);
-  font-size: 16px;
+  font-family: var(--avelune-serif);
+  font-size: 19px;
   font-style: italic;
   font-weight: 600;
   text-overflow: ellipsis;
@@ -636,6 +649,10 @@ a.forumtitle::after {
   background: var(--neutral);
   box-shadow: 0 0 0 2px var(--avelune-sea);
   transform: translateY(-50%);
+}
+
+.forum_activity_mark .game-icon {
+  font-size: 20px;
 }
 
 .forum:nth-child(even) .forum_activity_mark {
